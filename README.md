@@ -12,6 +12,13 @@ A desktop Todo application built with Laravel 11 and [NativePHP](https://nativep
 - 🧩 Native menus and window settings
 
 ---
+## 📸 Screenshot
+
+Here’s a screenshot of the Todo application:
+
+![Todo App Screenshot](/public/assets/screenshots/todo-app-screenshot.png)
+
+---
 
 ## ⚙️ Requirements
 

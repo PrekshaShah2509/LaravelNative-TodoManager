@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Providers;
 
 use Native\Laravel\Facades\Window;
@@ -13,12 +14,12 @@ class NativeAppServiceProvider implements ProvidesPhpIni
     public function boot(): void
     {
         Window::open()
-        ->title('Todo App')
-        ->route('todos.index')
-        ->width(800)
-        ->height(800)
-        ->minWidth(400)
-        ->minHeight(400);
+            ->title('Todo App')
+            ->route('todos.index')
+            ->width(375)
+            ->height(667)
+            ->minWidth(320)
+            ->minHeight(568);
     }
 
     /**
