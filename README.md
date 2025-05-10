@@ -14,7 +14,7 @@ A desktop Todo application built with Laravel 11 and [NativePHP](https://nativep
 ---
 ## 📸 Screenshot
 
-Here’s a screenshot of the Todo application:
+This screenshot shows the main dashboard of a simple, responsive Todo app built with Laravel 11 and NativePHP. You can add, edit, mark complete, or delete tasks—all from a clean, mobile-friendly interface inside a native desktop window.
 
 ![Todo App Screenshot](/public/assets/screenshots/todo-app-screenshot.png)
 
@@ -113,7 +113,7 @@ php artisan native:serve --debug
 php artisan native:build
 ```
 
-Builds are saved in the `build/` directory.
+Builds are saved in the `dist/` directory.
 
 ---
 
@@ -140,7 +140,7 @@ Your native menu and window config lives in `app/Providers/NativeAppServiceProvi
 ### NativePHP issues
 
 - Ensure NativePHP is installed and linked properly
-- Electron must be installed (`composer require electron --dev`)
+- Electron must be installed (`composer require nativephp/electron`)
 - Restart if changes to the menu don’t reflect
 
 ### App won’t launch
