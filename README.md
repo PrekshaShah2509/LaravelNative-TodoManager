@@ -16,7 +16,7 @@ A desktop Todo application built with Laravel 11 and [NativePHP](https://nativep
 
 This screenshot shows the main dashboard of a simple, responsive Todo app built with Laravel 11 and NativePHP. You can add, edit, mark complete, or delete tasks—all from a clean, mobile-friendly interface inside a native desktop window.
 
-![Todo App Screenshot](/public/assets/screenshots/todo-app-screenshot.png)
+![Todo App Screenshot](/public/assets/screenshots/todo-app-screenshot_new.png)
 
 ---
 
