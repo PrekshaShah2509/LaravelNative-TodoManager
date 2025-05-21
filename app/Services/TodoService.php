@@ -1,5 +1,13 @@
 <?php
 
+/**
+ * TodoService Class
+ *
+ * Handles all business logic for Todo operations (CRUD, filter, search, toggle, cache, etc).
+ *
+ * @author Preksha Shah
+ * @since 2025
+ */
 namespace App\Services;
 
 use App\Models\Todos as Todo;
@@ -25,6 +33,7 @@ class TodoService
     public function getAllTodos()
     {
         try {
+            // Cache todos for 5 minutes
             return Cache::remember('todos', 300, function () {
                 return Todo::orderBy('created_at', 'desc')->get();
             });
@@ -171,5 +180,52 @@ class TodoService
     public function clearCache()
     {
         Cache::forget('todos');
+    }
+
+    /**
+     * Get all completed todos
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getCompletedTodos()
+    {
+        return Todo::where('completed', true)->latest()->get();
+    }
+
+    /**
+     * Get all pending todos
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getPendingTodos()
+    {
+        return Todo::where('completed', false)->latest()->get();
+    }
+
+    /**
+     * Search and filter todos by title/description and completion status.
+     *
+     * @param string|null $search
+     * @param string|null $filter (all|completed|pending)
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function searchAndFilterTodos($search = null, $filter = 'all')
+    {
+        $query = Todo::query();
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('title', 'like', "%$search%")
+                  ->orWhere('description', 'like', "%$search%") ;
+            });
+        }
+
+        if ($filter === 'completed') {
+            $query->where('completed', true);
+        } elseif ($filter === 'pending') {
+            $query->where('completed', false);
+        }
+
+        return $query->orderBy('created_at', 'desc')->get();
     }
 }
